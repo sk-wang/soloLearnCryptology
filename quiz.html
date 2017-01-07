@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+    </script>
+    <style type="text/css">
+    		#content{
+    			margin-top: 30px;
+    			margin-left: 20px;
+    			color: #000000;
+    		}
+    		#selected li{
+    			border-top: solid rgb(238,238,238) 1px;
+    			list-style:none;
+    			height: 50px;
+    			padding-top:15px;
+    		}
+    		#selected li:first-child{
+    			border-top: none;
+    		}
+    		#selected{
+    			margin-top: 40px;
+    			margin-left: 20px;
+    			margin-right: 20px;
+    			background-color: #FFFFFF;
+    			padding-left: 0px;
+    			border: solid 1px rgb(238,238,238);
+    			border-radius: 5px;
+    			box-shadow: #666 0px 1px 1px;
+    		}
+    		.selected_icon{
+    			width:20px;
+    			height:20px;
+    			border-radius:10px;
+    			border:solid rgb(100,100,100)2px;
+    			float:left;
+    			margin-left: 20px;
+    		}
+    		.selected_fill_quarter{
+    			width:20px;
+    			height:20px;
+    			border-radius:10px;
+    			border:solid rgb(255,255,255) 6px;
+    			background-color: rgb(29,150,90);
+    			float:left;
+    			margin-left: 20px;
+    		}
+    		.selected_fill_half{
+    			width:20px;
+    			height:20px;
+    			border-radius:10px;
+    			border:solid rgb(255,255,255) 4px;
+    			background-color: rgb(29,150,90);
+    			float:left;
+    			margin-left: 20px;
+    		}
+    		.selected_fill_triquarter{
+    			width:20px;
+    			height:20px;
+    			border-radius:10px;
+    			border:solid rgb(255,255,255) 2px;
+    			background-color: rgb(29,150,90);
+    			float:left;
+    			margin-left: 20px;
+    		}
+    		.selected_fill{
+    			width:20px;
+    			height:20px;
+    			border-radius:10px;
+    			border:solid rgb(29,150,90) 10px;
+    			float:left;
+    			margin-left: 20px;
+    			display: none;
+    		}
+    		.selected_content{
+    			margin-top: 4px;
+    			margin-left: 50px;
+    			color: #000000;
+    		}
+    		#forward{
+    			width:60px;
+    			height:60px;
+    			border-radius:30px;
+    			border: none;
+			color: #FFFFFF;
+			background-color: #69db30;
+			font-size: 30px;
+			box-shadow: #666 0px 5px 10px;
+    		}
+    		.mui-bar{
+    			padding-left: 78%;
+    			background-color: rgba(0,0,0,0);
+            	box-shadow: 0 0 0px rgba(0, 0, 0, .85);
+    		}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav" style="padding-left:10px;height:74px;background-color: rgb(61,171,201);">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;margin-top: 30px;"></a>
+		<h1 class="mui-title" style="color: #FFFFFF;margin-top: 30px;">Quiz</h1>
+	</header>
+	<div id="status" style="display: none;">1</div>
+	<div id="quiz" class="mui-content" style="margin-top: 30px;">
+		<h5 id="content">		
+			Cryptology is:
+		<h5>
+		<ul id="selected">
+			<li id="selected_li1">
+				<div id="selected_icon1" class="selected_icon"></div>
+				<div id="selected_fill1" class="selected_fill"></div>
+				<div class="selected_content">lulala</div>
+			</li>
+			<li id="selected_li2">
+				<div id="selected_icon2" class="selected_icon"></div>
+				<div id="selected_fill2" class="selected_fill"></div>
+				<div class="selected_content">lulala</div>
+			</li>
+			<li id="selected_li3">
+				<div id="selected_icon3" class="selected_icon"></div>
+				<div id="selected_fill3" class="selected_fill"></div>
+				<div class="selected_content">lulala</div>
+			</li>
+			<li id="selected_li4">
+				<div id="selected_icon4" class="selected_icon"></div>
+				<div id="selected_fill4" class="selected_fill"></div>
+				<div class="selected_content">lulala</div>
+			</li>
+		</ul>
+	</div>
+	<div id="canvas" class="mui-content" style="padding-top:80px; display: none;">
+		<img id="certificate" src="img/certificate.png" style="display: none;width: 100%;"/>
+		<canvas id="myCanvas" width="1600" height="1200" style="display:none">
+	</div>
+	<div id="input_name" class="mui-content" style="padding-top:80px; display: none;">
+		<h5 style="margin-top: 30px;text-align:center;color: #000000;">Please input your name</h5>
+		<div style="padding-left: 20%;padding-right: 20%;">
+			<input type="text" id="name" style="border:none ; border-bottom: solid 1px;border-radius: 0px;background-color: #EFEFF4;text-align: center;"/>
+		</div>
+	</div>
+	<nav class="mui-bar mui-bar-tab" style="height:120px;border: none;">
+		<button id="forward"><span class="mui-icon mui-icon-forward"></span></button>
+	</nav>
+</body>
+<script type="text/javascript">
+	mui('#selected').on('click','li',function(){
+		var id = this.id.substr(-1,1);
+		for(i=1;i<=4;i++){
+			document.getElementById("selected_icon"+i).style['display'] = "block";
+			document.getElementById("selected_icon"+i).setAttribute("class","selected_icon");
+			document.getElementById("selected_fill"+i).style['display'] = "none";
+			document.getElementById("selected_fill"+i).setAttribute("class","selected_fill");
+		}
+		document.getElementById('selected_icon'+id).setAttribute('class','selected_fill_quarter');
+		setTimeout(function() {
+			document.getElementById('selected_icon'+id).setAttribute('class','selected_fill_half');
+		},50);
+		setTimeout(function() {
+			document.getElementById('selected_icon'+id).setAttribute('class','selected_fill_triquarter');
+		},100);
+		setTimeout(function() {
+			document.getElementById('selected_icon'+id).style['display'] = 'none';
+			document.getElementById('selected_fill'+id).style['display'] = 'block';
+		},150);
+	})
+</script>
+<script type="text/javascript">
+	var name;
+	document.getElementById('forward').addEventListener('click',function(event){
+		if(document.getElementById('status').innerText == '2'){
+			name = document.getElementById('name').value;
+			document.getElementById('input_name').style.display = "none";
+			document.getElementById('canvas').style.display = "block";
+			var c=document.getElementById("myCanvas");
+			var ctx=c.getContext("2d");
+			var certificate=document.getElementById("certificate");
+			ctx.drawImage(certificate,0,0);
+			//draw name
+			ctx.font = "48px serif";
+			ctx.fillStyle = "#744D24";
+			var width=ctx.measureText(name).width;
+  			ctx.fillText(name, 800 - (width/2), 480);
+  			//draw detail
+  			ctx.font = "60px serif";
+			ctx.fillStyle = "#744D24";
+			var detail = "Amateur Cryptographer";
+			var width=ctx.measureText(detail).width;
+  			ctx.fillText(detail, 800 - (width/2), 600);
+  			var image = c.toDataURL("image/png");  
+  			//draw Date
+  			ctx.font = "24px serif";
+			ctx.fillStyle = "#744D24";
+			var nowDate = new Date();
+			var detail = nowDate.getDay() + '/' + (nowDate.getMonth()+1) + '/' + nowDate.getFullYear();
+			if(mui.os.ios){
+				var detail = (nowDate.getDay()+1) + '/' + (nowDate.getMonth()+1) + '/' + nowDate.getFullYear();
+			}
+			var width=ctx.measureText(detail).width;
+  			ctx.fillText(detail, 1170 - (width/2), 710);
+  			var image = c.toDataURL("image/png");  
+  			document.getElementById('canvas').innerHTML = "<img src='"+image+"' style='width:100%'/>";
+		}else if(document.getElementById('status').innerText == '1'){
+			document.getElementById('quiz').style.display = "none";
+			document.getElementById('input_name').style.display = "block";
+			document.getElementById('status').innerHTML = '2';
+		}
+	},false);
+</script>
+</html>

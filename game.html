@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<script src="js/crypto-js.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+		</script>
+		<style type="text/css">
+			body {
+				background: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="height:74px;background-color: rgba(61,171,201,0);box-shadow: none;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;margin-top: 30px;"></a>
+		</header>
+		<div id="status" style="display: none;">1</div>
+		<div id="intro">
+			<h1 id="mission" style="color: red;margin-top: 30%;text-align: center;">MISSION!!!</h1>
+			<h5 style="color: white;margin-top: 10%;text-align: center;">Decrpt enemy telegram<br><br>Protect Britain!!!!!!</h5>
+			<div id="img" style="margin-top:10%;text-align: center;">
+				<img src="img/map.png" style="width: 40%">
+			</div>
+			<button id="start" style="margin-top: 20%;margin-left:calc(50% - 30px);width:60px;border: solid white 1px;background-color: rgba(0,0,0,0);color: white;border-radius: 8px;">start</button>
+		</div>
+		<div id="map" style="display: none;">
+			<div style="margin-top:25%;text-align: center;">
+				<img id="img_map" src="img/map.png" style="width: 40%">
+			</div>
+			<div id="plane_right" style="position:absolute;top:50%;display: none;">
+				<img src="img/right_plane.png" style="width: 80px;">
+			</div>
+			<div id="telegram" style="position:absolute;top:calc(74px + 1%);width:100%;display: none;">
+				<div id="nowtype" style="display: none;">MD5</div>
+				<h3 style="color: white;margin-left: 5%;padding-bottom: 5%;">Telegram ciphertext</h3>
+				<h5 id="MD5ciphertext" style="color: white;margin-left: 10%;display: none;word-wrap: break-word;width: 75%;"><br><br>U2FsdGVkX1/XaD/1Ox5ku74DN3uCnXfXPL1KRlNGwok=<br><br></h5>
+				<h5 id="Rabbitciphertext" style="color: white;margin-left: 10%;display: none;word-wrap: break-word;width: 75%;"><br><br>U2FsdGVkX1/XaD/1Ox5ku74DN3uCnXfXPL1KRlNGwok=<br><br></h5>
+				<h5 id="SHAciphertext" style="color: white;margin-left: 10%;display: none;word-wrap: break-word;width: 75%;"><br><br>U2FsdGVkX1/XaD/1Ox5ku74DN3uCnXfXPL1KRlNGwok=<br><br></h5>
+				<h5 id="AESciphertext" style="color: white;margin-left: 10%;display: none;word-wrap: break-word;width: 75%;"><br><br>U2FsdGVkX1/XaD/1Ox5ku74DN3uCnXfXPL1KRlNGwok=<br><br></h5>
+				<h5 id="DESciphertext" style="color: white;margin-left: 10%;display: none;word-wrap: break-word;width: 75%;"><br><br>U2FsdGVkX1/XaD/1Ox5ku74DN3uCnXfXPL1KRlNGwok=<br><br></h5>
+				<h3 style="color: white;margin-left: 5%;margin-top: 5%;">Tools</h3>
+				<div id="buttons" style="text-align: center;">
+					<h3 id="right" style="color: red;display: none;">Right</h3>
+					<button id="MD5" style="width:70%;margin-top:3%;border: solid white 1px;background-color: rgba(0,0,0,0);color: white;border-radius: 8px;">MD5</button>
+					<button id="Rabbit" style="width:70%;margin-top:8%;border: solid white 1px;background-color: rgba(0,0,0,0);color: white;border-radius: 8px;">Rabbit</button>
+					<button id="SHA" style="width:70%;margin-top:8%;border: solid white 1px;background-color: rgba(0,0,0,0);color: white;border-radius: 8px;">SHA</button>
+					<button id="AES" style="width:70%;margin-top:8%;border: solid white 1px;background-color: rgba(0,0,0,0);color: white;border-radius: 8px;">AES</button>
+					<button id="DES" style="width:70%;margin-top:8%;border: solid white 1px;background-color: rgba(0,0,0,0);color: white;border-radius: 8px;">DES</button>
+				</div>
+				<div id="time" style="text-align: center;margin-top: 5%;">
+					<h4 id="time_h4" style="color: white;font-weight: 400;margin-top: 3%;">Enemy coming in 20 s</h4>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var codes = new Array();
+		var types = new Array();
+		switch(Math.floor(Math.random() * 5)) {
+			case 0:
+				codes[0] = 'Southampton';
+				break;
+			case 1:
+				codes[0] = 'London';
+				break;
+			case 2:
+				codes[0] = 'Manchester';
+				break;
+			case 3:
+				codes[0] = 'Birmingham';
+				break;
+			case 4:
+				codes[0] = 'Glasgow';
+				break;
+			default:
+				break;
+		}
+		for(i = 0; i < 5; i++) {
+			switch(Math.floor(Math.random() * 5)) {
+				case 0:
+					codes[i + 1] = CryptoJS.MD5(codes[i]); 
+					types[i] = "MD5";
+					break;
+				case 1:
+					codes[i + 1] = CryptoJS.Rabbit.encrypt(codes[i],'ciphertext').ciphertext; 
+					types[i] = "Rabbit";
+					break;
+				case 2:
+					codes[i + 1] = CryptoJS.SHA1(codes[i]); 
+					types[i] = "SHA";
+					break;
+				case 3:
+					codes[i + 1] = CryptoJS.AES.encrypt(codes[i],'passowrd').ciphertext; 
+					types[i] = "AES";
+					break;
+				case 4:
+					codes[i + 1] = CryptoJS.DES.encrypt(codes[i],'cryptology').ciphertext;
+					types[i] = "DES";
+					break;
+				default:
+					break;
+			}
+		}
+		var nowIndex=0;
+		var time = 20;
+		var defeat = 0;
+		var missionInt = setInterval(function() {
+			if(document.getElementById('mission').style.color == "red") {
+				document.getElementById('mission').style.color = "white";
+			} else {
+				document.getElementById('mission').style.color = "red";
+			}
+		}, 500);
+		document.getElementById('start').addEventListener('click', function(event) {
+			document.getElementById('intro').style.display = "none";
+			document.getElementById('map').style.display = "block";
+			window.clearInterval(missionInt);
+			var originWidth = document.getElementById('img_map').offsetWidth;
+			for(i = 0; i <= 80; i++) {
+				setTimeout(function() {
+					document.getElementById('img_map').style.width = document.getElementById('img_map').offsetWidth + (document.body.clientWidth - originWidth) / 100 + 'px';
+				}, i * 10);
+			}
+			for(i = 0; i <= 150; i++) {
+				setTimeout(function() {
+					document.getElementById('plane_right').style.display = "block";
+					document.getElementById('plane_right').style.left = document.getElementById('plane_right').offsetLeft + 3 + 'px';
+				}, 800 + i * 10);
+				if(i == 150) {
+					setTimeout(function() {
+						document.getElementById('plane_right').style.display = "none";
+					}, 800 + i * 10);
+				}
+			}
+			setTimeout(function() {
+				document.getElementById('img_map').style.opacity = 0.2;
+				document.getElementById('telegram').style.display = 'block';
+				document.getElementById(types[nowIndex]+'ciphertext').innerText = (nowIndex+1) +"."+codes[nowIndex+1];
+				document.getElementById(types[nowIndex]+'ciphertext').style.display = 'block';
+				var timeInt = setInterval(function() {
+					if(time <= 0){
+						window.clearInterval(timeInt);
+						defeat();
+					}
+					time--;
+					document.getElementById('time_h4').innerText = 'Enemy coming in ' + time + ' s';
+				}, 1000);			
+			}, 2300);
+		}, false);
+		document.getElementById('MD5').addEventListener('click',function(event){
+			if(types[nowIndex] == 'MD5'){
+				next();
+			}else{
+				if(time < 5){
+					time = 0;
+				}else{
+					time -= 5;
+				}
+				document.getElementById('right').innerText = "Wrong";
+				document.getElementById('right').style.display = "Block";
+			}
+		},false);
+		document.getElementById('Rabbit').addEventListener('click',function(event){
+			if(types[nowIndex] == 'Rabbit'){
+				next();
+			}else{
+				if(time < 5){
+					time = 0;
+				}else{
+					time -= 5;
+				}
+				document.getElementById('right').innerText = "Wrong";
+				document.getElementById('right').style.display = "Block";
+			}
+		},false);
+		document.getElementById('SHA').addEventListener('click',function(event){
+			if(types[nowIndex] == 'SHA'){
+				next();
+			}else{
+				if(time < 5){
+					time = 0;
+				}else{
+					time -= 5;
+				}
+				document.getElementById('right').innerText = "Wrong";
+				document.getElementById('right').style.display = "Block";
+			}
+		},false);
+		document.getElementById('AES').addEventListener('click',function(event){
+			if(types[nowIndex] == 'AES'){
+				next();
+			}else{
+				if(time < 5){
+					time = 0;
+				}else{
+					time -= 5;
+				}
+				document.getElementById('right').innerText = "Wrong";
+				document.getElementById('right').style.display = "Block";
+			}
+		},false);
+		document.getElementById('DES').addEventListener('click',function(event){
+			if(types[nowIndex] == 'DES'){
+				next();
+			}else{
+				if(time < 5){
+					time = 0;
+				}else{
+					time -= 5;
+				}
+				document.getElementById('right').innerText = "Wrong";
+				document.getElementById('right').style.display = "Block";
+			}
+		},false);
+		function next(){
+			if(nowIndex == 4){
+				alert('Congratulations you have decrypt enemy would attack '+codes[0]);
+				mui.back();
+			}
+			nowIndex++;
+			time = 20;
+			document.getElementById('right').style.display = "None";
+			document.getElementById(types[nowIndex-1]+'ciphertext').style.display = "none";
+			document.getElementById(types[nowIndex]+'ciphertext').innerText = (nowIndex+1)+"."+codes[nowIndex+1];
+			document.getElementById(types[nowIndex]+'ciphertext').style.display = "block";
+		}
+		function defeat(){
+			alert('Defeat');
+			mui.back();
+		}
+	</script>
+
+</html>

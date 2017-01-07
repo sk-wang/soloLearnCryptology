@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init({
+			preloadPages: [{
+				url: 'basic.html',
+				id: 'basic'
+			},{
+				url: 'history.html',
+				id: 'history'
+			},{
+				url: 'function.html',
+				id: 'function'
+			}]
+		});
+    </script>
+    <style type="text/css">
+    	.subtitle{
+    		color: #000000;
+    	}
+    	img{
+		border-radius: 48px;
+		box-shadow: #666 0px 0px 10px;
+    	}
+    	.menu-content{
+    		height:33%;
+    	}
+    .menu-content ul{
+    		padding-left: 0px;
+    		list-style:none;
+    	}
+    .menu-content li{
+    		width: 50%;
+    		height:33%;
+    		float: left;
+    	}
+    </style>
+</head>
+<body style="height: 100%;">
+	<header class="mui-bar mui-bar-nav" style="height:74px;background-color: rgb(61,171,201);">
+		<h1 class="mui-title" style="color: #FFFFFF;margin-top: 30px;">Cryptology</h1>
+	</header>
+	<div class="mui-content">
+		<div class="menu-content">
+			<img src="img/basic.png" id="basic_img" style="margin-left:calc(50% - 48px);margin-top:13%;"/>
+			<p class="subtitle" style="text-align: center;">Basic Concept</p>
+		</div>	
+		<div class="menu-content">
+			<ul>
+     			<li>
+     				<img src="img/history.png" id="history_img" style="margin-left:calc(50% - 48px);margin-top:8%;"/>
+     				<p class="subtitle" style="text-align: center;">History</p>
+     			</li>
+     			<li>
+     				<img src="img/function.png" id="function_img" style="margin-left:calc(50% - 48px);margin-top:8%;"/>
+     				<p class="subtitle" style="text-align: center;">Common Method</p>
+     			</li>
+    			</ul>
+    		</div>
+    		<div class="menu-content">
+    			<ul>
+     			<li>
+     				<img src="img/Quiz.png" id="quiz_img" style="margin-left:calc(50% - 48px);margin-top:15%;"/>
+     				<p class="subtitle" style="text-align: center;">Quiz</p>
+     			</li>
+     			<li>
+     				<img src="img/game.png" id="game_img" style="margin-left:calc(50% - 48px);margin-top:15%;"/>
+     				<p class="subtitle" style="text-align: center;">Game</p>
+     			</li>
+    			</ul>
+		</div>
+	</div>
+</body>
+<script>
+	document.getElementById('basic_img').addEventListener('click',function(event){
+		mui.openWindow({
+			url: 'basic.html',
+			id: 'basic',
+			styles:{
+				hardwareAccelerated:true
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	},false);
+	document.getElementById('history_img').addEventListener('click',function(event){
+		mui.openWindow({
+			url: 'history.html',
+			id: 'history',
+			styles:{
+				hardwareAccelerated:true
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	},false);
+	document.getElementById('function_img').addEventListener('click',function(event){
+		mui.openWindow({
+			url: 'function.html',
+			id: 'function',
+			styles:{
+				hardwareAccelerated:true
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	},false);
+	document.getElementById('quiz_img').addEventListener('click',function(event){
+		mui.openWindow({
+			url: 'quiz.html',
+			id: 'quiz',
+			styles:{
+				hardwareAccelerated:true
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	},false);
+	document.getElementById('game_img').addEventListener('click',function(event){
+		mui.openWindow({
+			url: 'game.html',
+			id: 'game',
+			styles:{
+				hardwareAccelerated:true
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	},false);
+</script>
+</html>
