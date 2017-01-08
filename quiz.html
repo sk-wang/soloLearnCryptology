@@ -114,22 +114,22 @@
 			<li id="selected_li1">
 				<div id="selected_icon1" class="selected_icon"></div>
 				<div id="selected_fill1" class="selected_fill"></div>
-				<div class="selected_content">lulala</div>
+				<div id="selected_content1" class="selected_content">lulala</div>
 			</li>
 			<li id="selected_li2">
 				<div id="selected_icon2" class="selected_icon"></div>
 				<div id="selected_fill2" class="selected_fill"></div>
-				<div class="selected_content">lulala</div>
+				<div id="selected_content2" class="selected_content">lulala</div>
 			</li>
 			<li id="selected_li3">
 				<div id="selected_icon3" class="selected_icon"></div>
 				<div id="selected_fill3" class="selected_fill"></div>
-				<div class="selected_content">lulala</div>
+				<div id="selected_content3" class="selected_content">lulala</div>
 			</li>
 			<li id="selected_li4">
 				<div id="selected_icon4" class="selected_icon"></div>
 				<div id="selected_fill4" class="selected_fill"></div>
-				<div class="selected_content">lulala</div>
+				<div id="selected_content4" class="selected_content">lulala</div>
 			</li>
 		</ul>
 	</div>
@@ -148,29 +148,14 @@
 	</nav>
 </body>
 <script type="text/javascript">
-	mui('#selected').on('click','li',function(){
-		var id = this.id.substr(-1,1);
-		for(i=1;i<=4;i++){
-			document.getElementById("selected_icon"+i).style['display'] = "block";
-			document.getElementById("selected_icon"+i).setAttribute("class","selected_icon");
-			document.getElementById("selected_fill"+i).style['display'] = "none";
-			document.getElementById("selected_fill"+i).setAttribute("class","selected_fill");
-		}
-		document.getElementById('selected_icon'+id).setAttribute('class','selected_fill_quarter');
-		setTimeout(function() {
-			document.getElementById('selected_icon'+id).setAttribute('class','selected_fill_half');
-		},50);
-		setTimeout(function() {
-			document.getElementById('selected_icon'+id).setAttribute('class','selected_fill_triquarter');
-		},100);
-		setTimeout(function() {
-			document.getElementById('selected_icon'+id).style['display'] = 'none';
-			document.getElementById('selected_fill'+id).style['display'] = 'block';
-		},150);
-	})
-</script>
-<script type="text/javascript">
 	var name;
+	var data = [{"question":"A public Key Cryptosystem can be used only for","answer":3,"option":["Encryption","Key distribution","Digital signature","All of the others"]},{"question":"Consider a public key cryptosystem. Let E be the encryption procedure, and D be the decryption procedure of a user. Moreover, let M be a message. Which of the following is true","answer":1,"option":["D(D(E(M))) = E(M)","E(D(E(M))) = E(M)","none of the others","D(M) = E(M)"]},{"question":"Let(a,b) and (c,d) be the RSA encryption key and the RSA decryption ","answer":2,"option":["a = c","none of the others","b = d","b = c"]},{"question":"A ciphertext only attack is","answer":3,"option":["none of the others","a cryptanalytic attack in which the cryptanalyst possesses a substantial quantity of corresponding plaintext and ciphertext","a cryptanalyst can submit an unlimited number of plaintext messages of his own choosing and examine the resulting cryptograms","a cryptanalytic attack in which the cryptanalyst possess only ciphertext"]}];
+	var nowIndex = 0;
+	var nowSelect = -1;
+	document.getElementById('content').innerText = data[0].question;
+	for(i=0;i<4;i++){
+		document.getElementById("selected_content"+(i+1)).innerText = data[0]['option'][i] 
+	}
 	document.getElementById('forward').addEventListener('click',function(event){
 		if(document.getElementById('status').innerText == '2'){
 			name = document.getElementById('name').value;
@@ -205,10 +190,62 @@
   			var image = c.toDataURL("image/png");  
   			document.getElementById('canvas').innerHTML = "<img src='"+image+"' style='width:100%'/>";
 		}else if(document.getElementById('status').innerText == '1'){
-			document.getElementById('quiz').style.display = "none";
-			document.getElementById('input_name').style.display = "block";
-			document.getElementById('status').innerHTML = '2';
+			if(nowSelect == data[nowIndex].answer){
+				if(nowIndex == 4){
+					document.getElementById('quiz').style.display = "none";
+					document.getElementById('input_name').style.display = "block";
+					document.getElementById('status').innerHTML = '2';
+				}else{
+					next();
+				}
+			}else{
+				alert('Wrong answers!!!');
+				mui.back();
+			}
 		}
 	},false);
+	function next(){
+		nowIndex++;
+		for(i=1;i<=4;i++){
+			document.getElementById("selected_icon"+i).style['display'] = "block";
+			document.getElementById("selected_icon"+i).setAttribute("class","selected_icon");
+			document.getElementById("selected_fill"+i).style['display'] = "none";
+			document.getElementById("selected_fill"+i).setAttribute("class","selected_fill");
+		}
+		document.getElementById('content').innerText = data[nowIndex].question;
+		for(i=0;i<4;i++){
+			var content = document.getElementById("selected_content"+(i+1))
+			content.innerText = data[nowIndex]['option'][i] 
+			if(content.offsetHeight == 28){
+				content.style.marginTop = '-10px'
+			}
+			if(content.offsetHeight == 42){
+				content.style.marginTop = '-24px'
+			}
+		}
+	}
+</script>
+<script type="text/javascript">
+	mui('#selected').on('click','li',function(){
+		var id = this.id.substr(-1,1);
+		nowSelect = id - 1;
+		for(i=1;i<=4;i++){
+			document.getElementById("selected_icon"+i).style['display'] = "block";
+			document.getElementById("selected_icon"+i).setAttribute("class","selected_icon");
+			document.getElementById("selected_fill"+i).style['display'] = "none";
+			document.getElementById("selected_fill"+i).setAttribute("class","selected_fill");
+		}
+		document.getElementById('selected_icon'+id).setAttribute('class','selected_fill_quarter');
+		setTimeout(function() {
+			document.getElementById('selected_icon'+id).setAttribute('class','selected_fill_half');
+		},50);
+		setTimeout(function() {
+			document.getElementById('selected_icon'+id).setAttribute('class','selected_fill_triquarter');
+		},100);
+		setTimeout(function() {
+			document.getElementById('selected_icon'+id).style['display'] = 'none';
+			document.getElementById('selected_fill'+id).style['display'] = 'block';
+		},150);
+	})
 </script>
 </html>
