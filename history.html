@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title></title>
     <script src="js/mui.min.js"></script>
+    <script src="js/iSlider.min.js"></script>
+    <script src="js/iSlider.animate.min.js"></script>
+    <link href="css/iSlider.min.css" rel="stylesheet"/>
     <link href="css/mui.min.css" rel="stylesheet"/>
     <script type="text/javascript" charset="UTF-8">
       	mui.init();
@@ -15,5 +18,38 @@
 		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;margin-top: 30px;"></a>
 		<h1 class="mui-title" style="color: #FFFFFF;margin-top: 30px;">History</h1>
 	</header>
+	<div class="mui-content" style="margin-top: 60px;">
+		<div id="iSlider-wrapper" style="height: 500px;"></div>
+	</div>
 </body>
+<script type="text/javascript">
+	var list = [
+        // picture
+        {
+             'height' : '100%',
+   			 'width' : '100%',
+             'content' : '<div><img src="img/scytale.png" style="width:100%"/><h4 style="padding-left:3%">Reconstructed ancient Greek <a href="scytale.html">scytale</a>, an early cipher device</h4><div>'
+        },
+        {
+            'height' : '100%',
+   			 'width' : '100%',
+             'content' : '<div><img src="img/kind.png" style="width:100%"/><h4 style="padding-left:3%">First page of a book by Al-Kindi which discusses encryption of messages</h4><div>'
+        },
+        {
+            'height' : '100%',
+   			 'width' : '100%',
+             'content' : '<div><img src="img/16th.png" style="width:100%"/><h4 style="padding-left:3%">16th-century book-shaped French cipher machine, with arms of Henri II of France</h4><div>'
+        },
+        {
+            'height' : '100%',
+   			 'width' : '100%',
+             'content' : '<div><img src="img/letter.jpg" style="width:100%"/><h4 style="padding-left:3%">Enciphered letter from Gabriel de Luetz d&apos; Aramon, French Ambassador to the Ottoman Empire, after 1546, with partial decipherment</h4><div>'
+        },
+        {
+            content: 'img/scytale.png'
+        }
+    ];
+
+    var S = new iSlider(document.getElementById('iSlider-wrapper'), list);
+</script>
 </html>

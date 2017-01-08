@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+    </script>
+    <style type="text/css">
+    	p{
+    		color: #000000;
+    		padding-left: 3%;
+    		padding-right: 3%;
+    		font-size: 100%;
+    		font-weight: 300;
+    	}
+    	h3{
+    		padding-left: 3%;
+    	}
+    </style>
+</head>
+<body>
+	<header id="header" class="mui-bar mui-bar-nav" style="height:74px;background: rgba(255,255,255,0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;margin-top: 30px;"></a>
+		<h1 id="nav_title" class="mui-title" style="color: #FFFFFF;margin-top: 30px;opacity: 0">Scytale</h1>
+	</header>
+	<img id="background" src="img/Skytale.png" style="width: 100%;margin-bottom: 10px;"/>
+	<p>In cryptography, a scytale (/ˈskɪtəliː/, rhymes approximately with Italy; also transliterated skytale, Greek σκυτάλη "baton") is a tool used to perform a transposition cipher, consisting of a cylinder with a strip of parchment wound around it on which is written a message. The ancient Greeks, and the Spartans in particular, are said to have used this cipher to communicate during military campaigns.</p>
+	<p>The recipient uses a rod of the same diameter on which the parchment is wrapped to read the message. It has the advantage of being fast and not prone to mistakes—a necessary property when on the battlefield. It can, however, be easily broken. Since the strip of parchment hints strongly at the method, the ciphertext would have to be transferred to something less suggestive, somewhat reducing the advantage noted.</p>
+	<h3>Encrypting</h3>
+	<p>Suppose the rod allows one to write four letters around in a circle and five letters down the side of it. The plaintext could be: "I am hurt very badly HELP".</p>
+	<p>To encrypt, one simply writes across the leather:</p>
+	<pre>_____________________________________________________________
+       |   |   |   |   |   |  |
+       | I | a | m | h | u |  |
+     __| r | t | v | e | r |__| 
+    |  | y | b | a | d | l |
+    |  | y | H | E | L | P |
+    |  |   |   |   |   |   |
+_____________________________________________________________
+</pre>
+	<p>so the ciphertext becomes, "IryyatbHmvaEhedLurlP" after unwinding.</p>
+	<h3>Decrypting</h3>
+	<p>To decrypt, all one must do is wrap the leather strip around the rod and read across. The ciphertext is: "IryyatbhmvaEhedLurlP" Every fifth letter will appear on the same line, so the plaintext becomes:</p>
+	<pre>After inserting spaces, the message is revealed: "I am hurt very badly HELP".
+</pre>
+</body>
+<script type="text/javascript">	
+	var header = document.getElementById('header');
+	var background = document.getElementById('background');
+	setInterval(function() {
+			var t = document.body.scrollTop;
+  		var height = background.offsetHeight - 74;
+  		if(t>=0 && t<height * 0.1){
+  			header.style.background = "rgba(61,171,201,0)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.1 + 1 && t<height * 0.2){
+  			header.style.background = "rgba(61,171,201,0.1)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.2 + 1 && t<height * 0.3){
+  			header.style.background = "rgba(61,171,201,0.2)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.3 + 1 && t<height * 0.4){
+  			header.style.background = "rgba(61,171,201,0.3)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.4 + 1 && t<height * 0.5){
+  			header.style.background = "rgba(61,171,201,0.4)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.5 + 1 && t<height * 0.6){
+  			header.style.background = "rgba(61,171,201,0.5)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.6 + 1 && t<height * 0.7){
+  			header.style.background = "rgba(61,171,201,0.6)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.7 + 1 && t<height * 0.8){
+  			header.style.background = "rgba(61,171,201,0.7)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.8 + 1 && t<height * 0.9){
+  			header.style.background = "rgba(61,171,201,0.8)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.9 + 1 && t<height * 1){
+  			header.style.background = "rgba(61,171,201,0.9)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height){
+  			header.style.background = "rgba(61,171,201,1)";
+  			header.style.boxShadow = "0 0 1px rgba(0, 0, 0, .85);";
+  			document.getElementById('nav_title').style.opacity = 1;
+  		}
+	}, 10);
+	window.addEventListener('scroll',function(event){
+		if(mui.os.android){
+			var t = document.body.scrollTop;
+      		var height = background.offsetHeight - 74;
+      		if(t>=0 && t<height * 0.1){
+      			header.style.background = "rgba(61,171,201,0)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.1 + 1 && t<height * 0.2){
+      			header.style.background = "rgba(61,171,201,0.1)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.2 + 1 && t<height * 0.3){
+      			header.style.background = "rgba(61,171,201,0.2)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.3 + 1 && t<height * 0.4){
+      			header.style.background = "rgba(61,171,201,0.3)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.4 + 1 && t<height * 0.5){
+      			header.style.background = "rgba(61,171,201,0.4)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.5 + 1 && t<height * 0.6){
+      			header.style.background = "rgba(61,171,201,0.5)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.6 + 1 && t<height * 0.7){
+      			header.style.background = "rgba(61,171,201,0.6)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.7 + 1 && t<height * 0.8){
+      			header.style.background = "rgba(61,171,201,0.7)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.8 + 1 && t<height * 0.9){
+      			header.style.background = "rgba(61,171,201,0.8)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.9 + 1 && t<height * 1){
+      			header.style.background = "rgba(61,171,201,0.9)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height){
+      			header.style.background = "rgba(61,171,201,1)";
+      			header.style.boxShadow = "0 0 1px rgba(0, 0, 0, .85);";
+      			document.getElementById('nav_title').style.opacity = 1;
+      		}		
+		}
+    },false);
+</script>
+</html>

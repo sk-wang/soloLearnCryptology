@@ -13,6 +13,7 @@
     		#content{
     			margin-top: 30px;
     			margin-left: 20px;
+    			margin-right: 23px;
     			color: #000000;
     		}
     		#selected li{
@@ -149,7 +150,11 @@
 </body>
 <script type="text/javascript">
 	var name;
-	var data = [{"question":"A public Key Cryptosystem can be used only for","answer":3,"option":["Encryption","Key distribution","Digital signature","All of the others"]},{"question":"Consider a public key cryptosystem. Let E be the encryption procedure, and D be the decryption procedure of a user. Moreover, let M be a message. Which of the following is true","answer":1,"option":["D(D(E(M))) = E(M)","E(D(E(M))) = E(M)","none of the others","D(M) = E(M)"]},{"question":"Let(a,b) and (c,d) be the RSA encryption key and the RSA decryption ","answer":2,"option":["a = c","none of the others","b = d","b = c"]},{"question":"A ciphertext only attack is","answer":3,"option":["none of the others","a cryptanalytic attack in which the cryptanalyst possesses a substantial quantity of corresponding plaintext and ciphertext","a cryptanalyst can submit an unlimited number of plaintext messages of his own choosing and examine the resulting cryptograms","a cryptanalytic attack in which the cryptanalyst possess only ciphertext"]}];
+	var data = [{"question":"Which of following is the earliest time known use of cryptography is some carved ciphertext on stone","answer":0,"option":["ca 1900 BCE","ca 1700 BCE","ca 1800 BCE","ca 1850 BCE"]}
+			,{"question":"Consider a public key cryptosystem. Let E be the encryption procedure, and D be the decryption procedure of a user. Moreover, let M be a message. Which of the following is true","answer":1,"option":["D(D(E(M))) = E(M)","E(D(E(M))) = E(M)","none of the others","D(M) = E(M)"]}
+			,{"question":"Let(a,b) and (c,d) be the RSA encryption key and the RSA decryption key, respectively, of a user. Which of the following is true?","answer":2,"option":["a = c","none of the others","b = d","b = c"]}
+			,{"question":"Let(a,b) and (c,d) be the RSA encryption key and the RSA decryption key, respectively, of a user. Which of the following is true?","answer":2,"option":["a = c","none of the others","b = d","b = c"]}
+			,{"question":"Which of the following is hashed encryption","answer":1,"option":["Rabbit","SHA","AES","Base64"]}];
 	var nowIndex = 0;
 	var nowSelect = -1;
 	document.getElementById('content').innerText = data[0].question;
@@ -217,10 +222,10 @@
 			var content = document.getElementById("selected_content"+(i+1))
 			content.innerText = data[nowIndex]['option'][i] 
 			if(content.offsetHeight == 28){
-				content.style.marginTop = '-10px'
+				content.style.marginTop = '-6px'
 			}
 			if(content.offsetHeight == 42){
-				content.style.marginTop = '-24px'
+				content.style.marginTop = '-12px'
 			}
 		}
 	}
