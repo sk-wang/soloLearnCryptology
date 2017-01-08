@@ -1,94 +1,121 @@
 {
-	"index.html": {
-		"resources": [
-			"img/history.png",
-			"js/mui.min.js",
-			"img/function.png",
-			"img/game.png",
-			"css/mui.min.css",
-			"img/basic.png",
-			"img/Quiz.png"
-		],
-		"refer": [
-			"basic.html",
-			"function.html",
-			"history.html",
-			"game.html",
-			"quiz.html"
-		]
-	},
-	"basic.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"img/basic_header.png",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"img/525px-Public_key_encryption.svg.png",
-			"img/Symmetric_key_encryption.svg.png",
-			"img/1280px-Internet2.jpg"
-		],
-		"refer": []
-	},
-	"quiz.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/mui.css",
-			"img/certificate.jpg",
-			"img/certificate.png"
-		],
-		"refer": []
-	},
-	"history.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"js/iSlider.min.js",
-			"css/iSlider.min.css",
-			"js/iSlider.animate.min.js",
-			"img/scytale.png",
-			"scytale.html",
-			"img/kind.png",
-			"img/16th.png",
-			"img/letter.jpg"
-		],
-		"refer": [
-			"scytale.html"
-		]
-	},
-	"game.html": {
-		"resources": [
-			"img/map.png",
-			"fonts/mui.ttf",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"img/right_plane.png",
-			"js/crypto-js.js",
-			"sfx/00-genesis-toejam-jammin.mp3",
-			"sfx/Auditorium Applause-SoundBible.com-280911206.mp3"
-		],
-		"refer": []
-	},
-	"function.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/wiki.css",
-			"fonts/mui.ttf"
-		],
-		"refer": []
-	},
-	"scytale.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"history.html",
-			"img/Skytale.png"
-		],
-		"refer": [
-			"history.html"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "img/history.png",
+      "js/mui.min.js",
+      "img/function.png",
+      "img/game.png",
+      "css/mui.min.css",
+      "img/basic.png",
+      "img/Quiz.png"
+    ],
+    "refer": [
+      "basic.html",
+      "function.html",
+      "history.html",
+      "game.html",
+      "quiz.html",
+      "new_file.html"
+    ]
+  },
+  "basic.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "img/basic_header.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "img/525px-Public_key_encryption.svg.png",
+      "img/Symmetric_key_encryption.svg.png",
+      "img/1280px-Internet2.jpg"
+    ],
+    "refer": []
+  },
+  "quiz.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/mui.css",
+      "img/certificate.jpg",
+      "img/certificate.png"
+    ],
+    "refer": []
+  },
+  "history.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/iSlider.min.js",
+      "css/iSlider.min.css",
+      "js/iSlider.animate.min.js",
+      "img/scytale.png",
+      "scytale.html",
+      "img/kind.png",
+      "img/16th.png",
+      "img/letter.jpg"
+    ],
+    "refer": [
+      "scytale.html"
+    ]
+  },
+  "game.html": {
+    "resources": [
+      "img/map.png",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "img/right_plane.png",
+      "js/crypto-js.js",
+      "sfx/00-genesis-toejam-jammin.mp3",
+      "sfx/Auditorium Applause-SoundBible.com-280911206.mp3"
+    ],
+    "refer": []
+  },
+  "function.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/wiki.css",
+      "fonts/mui.ttf",
+      "new_file.html"
+    ],
+    "refer": []
+  },
+  "scytale.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "history.html",
+      "img/Skytale.png",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "history.html"
+    ]
+  },
+  "new_file.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/1483938037_letter_B_blue.svg",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "img/1483938091_letter_R_blue.svg",
+      "function.html",
+      "img/1483938082_letter_A_blue.svg",
+      "shifting.html"
+    ],
+    "refer": [
+      "function.html"
+    ]
+  },
+  "shifting.html": {
+    "resources": [
+      "img/caesar_cipher.png",
+      "new_file.html"
+    ],
+    "refer": [
+      "new_file.html"
+    ]
+  }
 }

@@ -208,7 +208,8 @@
 					"function.html",
 					"history.html",
 					"game.html",
-					"quiz.html"
+					"quiz.html",
+					"new_file.html"
 				],
 				"priority": 0
 			},
@@ -273,7 +274,8 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"css/wiki.css",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"new_file.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -283,7 +285,30 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"history.html",
-					"img/Skytale.png"
+					"img/Skytale.png",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"new_file.html": {
+				"resources": [
+					"js/mui.min.js",
+					"img/1483938037_letter_B_blue.svg",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"img/1483938091_letter_R_blue.svg",
+					"function.html",
+					"img/1483938082_letter_A_blue.svg",
+					"shifting.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"shifting.html": {
+				"resources": [
+					"img/caesar_cipher.png",
+					"new_file.html"
 				],
 				"refer": [],
 				"priority": 0
