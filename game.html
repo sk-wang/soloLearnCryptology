@@ -19,7 +19,8 @@
 		</style>
 	</head>
 
-	<body>
+	<body onload=give_instru()>
+		<script>function give_instru(){alert('A group of terrorists is planning to carry out attack in Britain, MI6 has intercepted their emails, find out which city they want to attack and save the Britain')}</script>
 		<header class="mui-bar mui-bar-nav" style="height:74px;background-color: rgba(61,171,201,0);box-shadow: none;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;margin-top: 30px;"></a>
 		</header>
@@ -231,7 +232,7 @@
 		},false);
 		function next(){
 			if(nowIndex == 4){
-				alert('Congratulations you have decrypt enemy would attack '+codes[0]);
+				alert('Congratulations, you have decrypt that enemy would attack '+codes[0]);
 				mui.back();
 			}
 			nowIndex++;
