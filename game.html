@@ -20,9 +20,10 @@
 	</head>
 
 	<body onload=give_instru()>
-		<audio controls autoplay style="display: none;">
-  <source src="sfx/00-genesis-toejam-jammin.mp3" type="audio/mpeg">
-</audio>
+		<script>
+  mySound = new Audio("sfx/00-genesis-toejam-jammin.mp3");
+  mySound.play();
+</script>
 		<script>function give_instru(){alert('A group of terrorists is planning to carry out attack in Britain, MI6 has intercepted their emails, find out which city they want to attack by dectypting their communication and save the Britain')}</script>
 		<header class="mui-bar mui-bar-nav" style="height:74px;background-color: rgba(61,171,201,0);box-shadow: none;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;margin-top: 30px;"></a>
@@ -250,7 +251,7 @@
 		}
 		function defeat()
 		{
-			alert('Defeat');
+			alert('Operation fialed.');
 			mui.back();
 		}
 	</script>
