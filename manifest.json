@@ -309,7 +309,8 @@
 					"otp.html",
 					"img/1483950000_letter_D_blue.svg",
 					"img/1483949311_letter_M_blue.svg",
-					"MD5.html"
+					"MD5.html",
+					"rsa.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -344,6 +345,14 @@
 			"MD5.html": {
 				"resources": [
 					"img/MD5.png",
+					"new_file.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"rsa.html": {
+				"resources": [
+					"img/Symmetric_key_encryption.svg.png",
 					"new_file.html"
 				],
 				"refer": [],

@@ -8,6 +8,9 @@
     <link href="css/mui.min.css" rel="stylesheet"/>
     <script type="text/javascript" charset="UTF-8">
       	mui.init();
+      	document.addEventListener('plusready',onPlusReady,false);
+      	function onPlusReady() {
+		}
     </script>
     <style type="text/css">
     		#content{
@@ -150,6 +153,7 @@
 </body>
 <script type="text/javascript">
 	var name;
+	var cert_image;
 	var data = [{"question":"Which of following is the earliest time known use of cryptography is some carved ciphertext on stone","answer":0,"option":["ca 1900 BCE","ca 1700 BCE","ca 1800 BCE","ca 1850 BCE"]}
 			,{"question":"Consider a public key cryptosystem. Let E be the encryption procedure, and D be the decryption procedure of a user. Moreover, let M be a message. Which of the following is true","answer":1,"option":["D(D(E(M))) = E(M)","E(D(E(M))) = E(M)","none of the others","D(M) = E(M)"]}
 			,{"question":"Let(a,b) and (c,d) be the RSA encryption key and the RSA decryption key, respectively, of a user. Which of the following is true?","answer":2,"option":["a = c","none of the others","b = d","b = c"]}
@@ -157,23 +161,12 @@
 			,{"question":"Which of the following is hashed encryption","answer":1,"option":["Rabbit","SHA","AES","Base64"]}];
 	var nowIndex = 0;
 	var nowSelect = -1;
-	var image;
 	document.getElementById('content').innerText = data[0].question;
 	for(i=0;i<4;i++){
 		document.getElementById("selected_content"+(i+1)).innerText = data[0]['option'][i] 
 	}
 	document.getElementById('forward').addEventListener('click',function(event){
 		if(document.getElementById('status').innerText == '3'){
-			var saveFile = function(data, filename){
-			    var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
-			    save_link.href = data;
-			    save_link.download = filename;
-			    var event = document.createEvent('MouseEvents');
-			    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-			    save_link.dispatchEvent(event);
-			};
-			var filename = 'certificate';
-			saveFile(image,filename);
 		}
 		else if(document.getElementById('status').innerText == '2'){
 			name = document.getElementById('name').value;
@@ -194,7 +187,7 @@
 			var detail = "Amateur Cryptologist";
 			var width=ctx.measureText(detail).width;
   			ctx.fillText(detail, 800 - (width/2), 600);
-  			var image = c.toDataURL("image/png");  
+  			cert_image = c.toDataURL("image/png");  
   			//draw Date
   			ctx.font = "24px serif";
 			ctx.fillStyle = "#744D24";
@@ -205,8 +198,8 @@
 			}
 			var width=ctx.measureText(datenow).width;
   			ctx.fillText(datenow, 1170 - (width/2), 710);
-  			image = c.toDataURL("image/png");  
-  			document.getElementById('canvas').innerHTML = "<img id='certificate_img' src='"+image+"' style='width:100%'/>";
+  			cert_image = c.toDataURL("image/png");  
+  			document.getElementById('canvas').innerHTML = "<img id='certificate_img' src='"+cert_image+"' style='width:100%'/>";
 			document.getElementById('status').innerHTML = '3';
 		}else if(document.getElementById('status').innerText == '1'){
 			if(nowSelect == data[nowIndex].answer){
