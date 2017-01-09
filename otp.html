@@ -29,32 +29,6 @@
 	</header>
 	<img id="background" src="img/otp.png" style="width: 100%;margin-bottom: 10px;"/>
 	<p>In cryptography, the one-time pad (OTP) is an encryption technique that cannot be cracked, but requires the use of a one-time pre-shared key the same size as the message being sent. In this technique, a plaintext is paired with a random secret key (also referred to as a one-time pad). Then, each bit or character of the plaintext is encrypted by combining it with the corresponding bit or character from the pad using modular addition. If the key is truly random, is at least as long as the plaintext, is never reused in whole or in part, and is kept completely secret, then the resulting ciphertext will be impossible to decrypt or break. It has also been proven that any cipher with the perfect secrecy property must use keys with effectively the same requirements as OTP keys. However, practical problems have prevented one-time pads from being widely used.</p>
-	<p>First described by Frank Miller in 1882,the one-time pad was re-invented in 1917. On July 22, 1919, U.S. Patent 1,310,719 was issued to Gilbert S. Vernam for the XOR operation used for the encryption of a one-time pad. Derived from his Vernam cipher, the system was a cipher that combined a message with a key read from a punched tape. In its original form, Vernam's system was vulnerable because the key tape was a loop, which was reused whenever the loop made a full cycle. One-time use came later, when Joseph Mauborgne recognized that if the key tape were totally random, then cryptanalysis would be impossible.</p>
-	<p>The "pad" part of the name comes from early implementations where the key material was distributed as a pad of paper, so that the top sheet could be easily torn off and destroyed after use. For ease of concealment, the pad was sometimes reduced to such a small size that a powerful magnifying glass was required to use it. The KGB used pads of such size that they could fit in the palm of one's hand, or in a walnut shell. To increase security, one-time pads were sometimes printed onto sheets of highly flammable nitrocellulose, so that they could be quickly burned after use.</p>
-	<p>There is some ambiguity to the term because some sources use the terms "Vernam cipher" and "one-time pad" synonymously, while others refer to any additive stream cipher as a "Vernam cipher", including those based on a cryptographically secure pseudorandom number generator (CSPRNG).</p>
-	<h3>Example</h3>
-	<p>Suppose Alice wishes to send the message "HELLO" to Bob. Assume two pads of paper containing identical random sequences of letters were somehow previously produced and securely issued to both. Alice chooses the appropriate unused page from the pad. The way to do this is normally arranged for in advance, as for instance 'use the 12th sheet on 1 May', or 'use the next available sheet for the next message'.</p>
-	<p>The material on the selected sheet is the key for this message. Each letter from the pad will be combined in a predetermined way with one letter of the message. (It is common, but not required, to assign each letter a numerical value, e.g., "A" is 0, "B" is 1, and so on.)</p>
-	<p>In this example, the technique is to combine the key and the message using modular addition. The numerical values of corresponding message and key letters are added together, modulo 26. So, if key material begins with "XMCKL" and the message is "HELLO", then the coding would be done as follows:</p>
-	<pre>      H       E       L       L       O  message
-   7 (H)   4 (E)  11 (L)  11 (L)  14 (O) message
-+ 23 (X)  12 (M)   2 (C)  10 (K)  11 (L) key
-= 30      16      13      21      25     message + key
-=  4 (E)  16 (Q)  13 (N)  21 (V)  25 (Z) (message + key) mod 26
-      E       Q       N       V       Z  → ciphertext
-</pre>
-	<p>If a number is larger than 26, then the remainder after subtraction of 26 is taken in modular arithmetic fashion. This simply means that if the computations "go past" Z, the sequence starts again at A.</p>
-	<p>The ciphertext to be sent to Bob is thus "EQNVZ". Bob uses the matching key page and the same process, but in reverse, to obtain the <a href="/wiki/Plaintext" title="Plaintext">plaintext</a>. Here the key is <i>subtracted</i> from the ciphertext, again using modular arithmetic:</p>
-	<pre>       E       Q       N       V       Z  ciphertext
-    4 (E)  16 (Q)  13 (N)  21 (V)  25 (Z) ciphertext
--  23 (X)  12 (M)   2 (C)  10 (K)  11 (L) key
-= -19       4      11      11      14     ciphertext – key
-=   7 (H)   4 (E)  11 (L)  11 (L)  14 (O) ciphertext – key (mod 26)
-       H       E       L       L       O  → message
-</pre>
-	<p>Similar to the above, if a number is negative then 26 is added to make the number zero or higher.</p>
-	<p>Thus Bob recovers Alice's plaintext, the message "HELLO". Both Alice and Bob destroy the key sheet immediately after use, thus preventing reuse and an attack against the cipher. The KGB often issued its agents one-time pads printed on tiny sheets of "flash paper"—paper chemically converted to nitrocellulose, which burns almost instantly and leaves no ash.</p>
-	<p>The classical one-time pad of espionage used actual pads of minuscule, easily concealed paper, a sharp pencil, and some mental arithmetic. The method can be implemented now as a software program, using data files as input (plaintext), output (ciphertext) and key material (the required random sequence). The XOR operation is often used to combine the plaintext and the key elements, and is especially attractive on computers since it is usually a native machine instruction and is therefore very fast. However, it is difficult to ensure that the key material is actually random, is used only once, never becomes known to the opposition, and is completely destroyed after use. The auxiliary parts of a software one-time pad implementation present real challenges: secure handling/transmission of plaintext, truly random keys, and one-time-only use of the key.</p>
 </body>
 <script type="text/javascript">	
 	var header = document.getElementById('header');
