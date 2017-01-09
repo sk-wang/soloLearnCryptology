@@ -139,7 +139,7 @@
 		<canvas id="myCanvas" width="1600" height="1200" style="display:none">
 	</div>
 	<div id="input_name" class="mui-content" style="padding-top:80px; display: none;">
-		<h5 style="margin-top: 30px;text-align:center;color: #000000;">Please input your name</h5>
+		<h5 style="margin-top: 30px;font-size:20px;text-align:center;color: #000000;">Congratulations!!!<br><br>You have pass the quiz.<br><br>Please input your name to get certificate</h5>
 		<div style="padding-left: 20%;padding-right: 20%;">
 			<input type="text" id="name" style="border:none ; border-bottom: solid 1px;border-radius: 0px;background-color: #EFEFF4;text-align: center;"/>
 		</div>
@@ -153,16 +153,29 @@
 	var data = [{"question":"Which of following is the earliest time known use of cryptography is some carved ciphertext on stone","answer":0,"option":["ca 1900 BCE","ca 1700 BCE","ca 1800 BCE","ca 1850 BCE"]}
 			,{"question":"Consider a public key cryptosystem. Let E be the encryption procedure, and D be the decryption procedure of a user. Moreover, let M be a message. Which of the following is true","answer":1,"option":["D(D(E(M))) = E(M)","E(D(E(M))) = E(M)","none of the others","D(M) = E(M)"]}
 			,{"question":"Let(a,b) and (c,d) be the RSA encryption key and the RSA decryption key, respectively, of a user. Which of the following is true?","answer":2,"option":["a = c","none of the others","b = d","b = c"]}
-			,{"question":"Let(a,b) and (c,d) be the RSA encryption key and the RSA decryption key, respectively, of a user. Which of the following is true?","answer":2,"option":["a = c","none of the others","b = d","b = c"]}
+			,{"question":"Which of the following is the method cannot be cracked","answer":2,"option":["SHA","Rabbit","One-time pad","DES"]}
 			,{"question":"Which of the following is hashed encryption","answer":1,"option":["Rabbit","SHA","AES","Base64"]}];
 	var nowIndex = 0;
 	var nowSelect = -1;
+	var image;
 	document.getElementById('content').innerText = data[0].question;
 	for(i=0;i<4;i++){
 		document.getElementById("selected_content"+(i+1)).innerText = data[0]['option'][i] 
 	}
 	document.getElementById('forward').addEventListener('click',function(event){
-		if(document.getElementById('status').innerText == '2'){
+		if(document.getElementById('status').innerText == '3'){
+			var saveFile = function(data, filename){
+			    var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+			    save_link.href = data;
+			    save_link.download = filename;
+			    var event = document.createEvent('MouseEvents');
+			    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+			    save_link.dispatchEvent(event);
+			};
+			var filename = 'certificate';
+			saveFile(image,filename);
+		}
+		else if(document.getElementById('status').innerText == '2'){
 			name = document.getElementById('name').value;
 			document.getElementById('input_name').style.display = "none";
 			document.getElementById('canvas').style.display = "block";
@@ -178,7 +191,7 @@
   			//draw detail
   			ctx.font = "60px serif";
 			ctx.fillStyle = "#744D24";
-			var detail = "Amateur Cryptographer";
+			var detail = "Amateur Cryptologist";
 			var width=ctx.measureText(detail).width;
   			ctx.fillText(detail, 800 - (width/2), 600);
   			var image = c.toDataURL("image/png");  
@@ -186,14 +199,15 @@
   			ctx.font = "24px serif";
 			ctx.fillStyle = "#744D24";
 			var nowDate = new Date();
-			var detail = nowDate.getDay() + '/' + (nowDate.getMonth()+1) + '/' + nowDate.getFullYear();
+			var datenow = nowDate.getDay() + '/' + (nowDate.getMonth()+1) + '/' + nowDate.getFullYear();
 			if(mui.os.ios){
-				var detail = (nowDate.getDay()+1) + '/' + (nowDate.getMonth()+1) + '/' + nowDate.getFullYear();
+				var datenow = (nowDate.getDay()+1) + '/' + (nowDate.getMonth()+1) + '/' + nowDate.getFullYear();
 			}
-			var width=ctx.measureText(detail).width;
-  			ctx.fillText(detail, 1170 - (width/2), 710);
-  			var image = c.toDataURL("image/png");  
-  			document.getElementById('canvas').innerHTML = "<img src='"+image+"' style='width:100%'/>";
+			var width=ctx.measureText(datenow).width;
+  			ctx.fillText(datenow, 1170 - (width/2), 710);
+  			image = c.toDataURL("image/png");  
+  			document.getElementById('canvas').innerHTML = "<img id='certificate_img' src='"+image+"' style='width:100%'/>";
+			document.getElementById('status').innerHTML = '3';
 		}else if(document.getElementById('status').innerText == '1'){
 			if(nowSelect == data[nowIndex].answer){
 				if(nowIndex == 4){

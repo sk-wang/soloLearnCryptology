@@ -303,7 +303,13 @@
 					"img/1483938091_letter_R_blue.svg",
 					"function.html",
 					"img/1483938082_letter_A_blue.svg",
-					"shifting.html"
+					"shifting.html",
+					"img/1483946652_letter_H_blue.svg",
+					"img/1483947258_letter_O_blue.svg",
+					"otp.html",
+					"img/1483950000_letter_D_blue.svg",
+					"img/1483949311_letter_M_blue.svg",
+					"MD5.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -321,7 +327,24 @@
 					"js/mui.min.js",
 					"img/engima_background.jpg",
 					"css/mui.min.css",
-					"history.html"
+					"history.html",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"otp.html": {
+				"resources": [
+					"img/otp.png",
+					"new_file.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"MD5.html": {
+				"resources": [
+					"img/MD5.png",
+					"new_file.html"
 				],
 				"refer": [],
 				"priority": 0

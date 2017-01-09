@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+    </script>
+    <style type="text/css">
+    	p{
+    		color: #000000;
+    		padding-left: 3%;
+    		padding-right: 3%;
+    		font-size: 100%;
+    		font-weight: 300;
+    	}
+    	h3{
+    		padding-left: 3%;
+    	}
+    </style>
+</head>
+<body>
+	<header id="header" class="mui-bar mui-bar-nav" style="height:74px;background: rgba(255,255,255,0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;margin-top: 30px;"></a>
+		<h1 id="nav_title" class="mui-title" style="color: #FFFFFF;margin-top: 30px;opacity: 0">MD5</h1>
+	</header>
+	<img id="background" src="img/MD5.png" style="width: 100%;margin-bottom: 10px;"/>
+	<p>The MD5 algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities. It can still be used as a checksum to verify data integrity, but only against unintentional corruption.</p>
+	<p>Like most hash functions, MD5 is neither encryption nor encoding. It can be reversed by brute-force attack and suffers from extensive vulnerabilities as detailed in the security section below.</p>
+	<h3>MD5 hashes</h3>
+	<p>The 128-bit (16-byte) MD5 hashes (also termed message digests) are typically represented as a sequence of 32 hexadecimal digits. The following demonstrates a 43-byte ASCII input and the corresponding MD5 hash:</p>
+	<pre> MD5("The quick brown fox jumps over the lazy dog") = 9e107d9d372bb6826bd81d3542a419d6
+	</pre>
+	<p>Even a small change in the message will (with overwhelming probability) result in a mostly different hash, due to the avalanche effect. For example, adding a period to the end of the sentence:</p>
+	<pre> MD5("The quick brown fox jumps over the lazy dog.") = e4d909c290d0fb1ca068ffaddf22cbd0</pre>
+	<p>The hash of the zero-length string is:</p>
+	<pre> MD5("") = d41d8cd98f00b204e9800998ecf8427e</pre>
+	<p>The MD5 algorithm is specified for messages consisting of any number of bits; it is not limited to multiples of eight bit (octets, bytes) as shown in the examples above. Some MD5 implementations such as md5sum might be limited to octets, or they might not support streaming for messages of an initially undetermined length.</p>
+</body>
+<script type="text/javascript">	
+	var header = document.getElementById('header');
+	var background = document.getElementById('background');
+	setInterval(function() {
+			var t = document.body.scrollTop;
+  		var height = background.offsetHeight - 74;
+  		if(t>=0 && t<height * 0.1){
+  			header.style.background = "rgba(61,171,201,0)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.1 + 1 && t<height * 0.2){
+  			header.style.background = "rgba(61,171,201,0.1)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.2 + 1 && t<height * 0.3){
+  			header.style.background = "rgba(61,171,201,0.2)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.3 + 1 && t<height * 0.4){
+  			header.style.background = "rgba(61,171,201,0.3)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.4 + 1 && t<height * 0.5){
+  			header.style.background = "rgba(61,171,201,0.4)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.5 + 1 && t<height * 0.6){
+  			header.style.background = "rgba(61,171,201,0.5)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.6 + 1 && t<height * 0.7){
+  			header.style.background = "rgba(61,171,201,0.6)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.7 + 1 && t<height * 0.8){
+  			header.style.background = "rgba(61,171,201,0.7)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.8 + 1 && t<height * 0.9){
+  			header.style.background = "rgba(61,171,201,0.8)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height * 0.9 + 1 && t<height * 1){
+  			header.style.background = "rgba(61,171,201,0.9)";
+  			document.getElementById('nav_title').style.opacity = 0;
+  		}
+  		if(t>=height){
+  			header.style.background = "rgba(61,171,201,1)";
+  			header.style.boxShadow = "0 0 1px rgba(0, 0, 0, .85);";
+  			document.getElementById('nav_title').style.opacity = 1;
+  		}
+	}, 10);
+	window.addEventListener('scroll',function(event){
+		if(mui.os.android){
+			var t = document.body.scrollTop;
+      		var height = background.offsetHeight - 74;
+      		if(t>=0 && t<height * 0.1){
+      			header.style.background = "rgba(61,171,201,0)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.1 + 1 && t<height * 0.2){
+      			header.style.background = "rgba(61,171,201,0.1)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.2 + 1 && t<height * 0.3){
+      			header.style.background = "rgba(61,171,201,0.2)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.3 + 1 && t<height * 0.4){
+      			header.style.background = "rgba(61,171,201,0.3)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.4 + 1 && t<height * 0.5){
+      			header.style.background = "rgba(61,171,201,0.4)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.5 + 1 && t<height * 0.6){
+      			header.style.background = "rgba(61,171,201,0.5)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.6 + 1 && t<height * 0.7){
+      			header.style.background = "rgba(61,171,201,0.6)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.7 + 1 && t<height * 0.8){
+      			header.style.background = "rgba(61,171,201,0.7)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.8 + 1 && t<height * 0.9){
+      			header.style.background = "rgba(61,171,201,0.8)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height * 0.9 + 1 && t<height * 1){
+      			header.style.background = "rgba(61,171,201,0.9)";
+      			document.getElementById('nav_title').style.opacity = 0;
+      		}
+      		if(t>=height){
+      			header.style.background = "rgba(61,171,201,1)";
+      			header.style.boxShadow = "0 0 1px rgba(0, 0, 0, .85);";
+      			document.getElementById('nav_title').style.opacity = 1;
+      		}		
+		}
+    },false);
+</script>
+</html>
