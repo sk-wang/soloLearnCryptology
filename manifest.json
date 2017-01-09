@@ -250,7 +250,10 @@
 					"scytale.html",
 					"img/kind.png",
 					"img/16th.png",
-					"img/letter.jpg"
+					"img/letter.jpg",
+					"img/Enigma.jpg",
+					"enigma.html",
+					"img/nsa.jpg"
 				],
 				"refer": [],
 				"priority": 0
@@ -309,6 +312,16 @@
 				"resources": [
 					"img/caesar_cipher.png",
 					"new_file.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"enigma.html": {
+				"resources": [
+					"js/mui.min.js",
+					"img/engima_background.jpg",
+					"css/mui.min.css",
+					"history.html"
 				],
 				"refer": [],
 				"priority": 0

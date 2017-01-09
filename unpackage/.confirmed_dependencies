@@ -53,7 +53,10 @@
       "scytale.html",
       "img/kind.png",
       "img/16th.png",
-      "img/letter.jpg"
+      "img/letter.jpg",
+      "img/Enigma.jpg",
+      "enigma.html",
+      "img/nsa.jpg"
     ],
     "refer": [
       "scytale.html"
@@ -117,5 +120,14 @@
     "refer": [
       "new_file.html"
     ]
+  },
+  "enigma.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/engima_background.jpg",
+      "css/mui.min.css",
+      "history.html"
+    ],
+    "refer": []
   }
 }
